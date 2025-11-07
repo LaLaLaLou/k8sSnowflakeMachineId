@@ -53,8 +53,8 @@ redis
 
 ## 快速开始
 
-1.将SERVICE_NAME_LIST中的服务名换成你自己的，并将SnowflakeIdConfig文件放入工程内。
-2.在初始化雪花算法位置获取环境变量
+- 1.将SERVICE_NAME_LIST中的服务名换成你自己的，并将SnowflakeIdConfig文件放入工程内。
+- 2.在初始化雪花算法位置获取环境变量
 
 ```java
 // dataCenterId
@@ -62,3 +62,4 @@ String serverRoomNodeStr = System.getProperty("server_room_node");
 // workerId
 String serverServiceNodeStr = System.getProperty("server_service_node");
 ```
+
