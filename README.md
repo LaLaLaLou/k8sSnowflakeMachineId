@@ -20,19 +20,8 @@
 
 ## 依赖要求
 
-```xml
-<!-- Spring Cloud Alibaba Nacos -->
-<dependency>
-    <groupId>com.alibaba.cloud</groupId>
-    <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-</dependency>
-
-<!-- Redis -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-```
+nacos
+redis
 
 ## 工作原理
 
@@ -61,11 +50,15 @@
 - **Nacos 异常**：重试机制和详细错误日志
 - **Redis 异常**：锁自动过期机制（10分钟）
 
-## 注意事项
 
-1. 确保服务可以访问 Nacos 和 Redis
-2. 服务需要 Nacos 的读写权限
-3. 确保组合数量满足业务需求
-4. 监控关键异常和日志输出
+## 快速开始
 
+1.将SERVICE_NAME_LIST中的服务名换成你自己的，并将SnowflakeIdConfig文件放入工程内。
+2.在初始化雪花算法位置获取环境变量
 
+```java
+// dataCenterId
+String serverRoomNodeStr = System.getProperty("server_room_node");
+// workerId
+String serverServiceNodeStr = System.getProperty("server_service_node");
+```
