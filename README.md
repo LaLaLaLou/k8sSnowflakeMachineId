@@ -29,6 +29,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
+```
 
 ## 工作原理
 
@@ -63,3 +64,4 @@
 2. 服务需要 Nacos 的读写权限
 3. 确保组合数量满足业务需求
 4. 监控关键异常和日志输出
+
