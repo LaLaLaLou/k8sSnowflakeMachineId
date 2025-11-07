@@ -31,6 +31,23 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class SnowflakeIdConfig {
+	
+	
+    /**
+	 * 将如下服务替换为你自己的服务名（spring.application.name）
+     * 服务列表：所有需要生成雪花算法的服务都列入其中
+     */
+    private final List<String> SERVICE_NAME_LIST = Arrays.asList(
+            "H5Service",
+            // DRC 服务
+            "DataService", "ReportService",
+            // EC 服务
+            "AimService", "SystemService", "UserService",
+            // MC 服务
+            "SyncService", "ScodeService", "ApiService","ParamService",
+            // OS 服务
+            "TemplateService", "AuthService", "SmsService", "AgentService", "AuditService", "OsSystemService"
+    );
 
     private final RedisUtil redisUtil;
     private final ReleaseCombinations releaseCombinations;
@@ -107,20 +124,7 @@ public class SnowflakeIdConfig {
         try {
             Set<String> combinations = new HashSet<>();
 
-            // 查询所有服务的实例，提取组合键
-            List<String> serviceNameList = Arrays.asList(
-                    "H5Service",
-                    // DRC 服务
-                    "DataService", "ReportService",
-                    // EC 服务
-                    "AimService", "SystemService", "UserService",
-                    // MC 服务
-                    "SyncService", "ScodeService", "ApiService","ParamService",
-                    // OS 服务
-                    "TemplateService", "AuthService", "SmsService", "AgentService", "AuditService", "OsSystemService"
-            );
-
-            for (String serviceName : serviceNameList) {
+            for (String serviceName : SERVICE_NAME_LIST) {
                 releaseCombinations.queryAndAddCombinationList(serviceName, combinations, nacosServiceManager, nacosConfigGroup);
             }
             log.info("初始化雪花算法配置-查询Nacos实例成功，已分配的组合：{}", combinations);
