@@ -1,4 +1,4 @@
-package com.montnets.aim.h5.config;
+package com.xxx.config;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.NacosServiceManager;

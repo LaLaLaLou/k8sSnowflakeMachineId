@@ -1,4 +1,4 @@
-package com.montnets.common.util;
+package com.xxx.util;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import com.montnets.common.exception.BaseHandlerException;
